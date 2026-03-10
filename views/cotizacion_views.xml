@@ -1,0 +1,87 @@
+<odoo>
+
+<record id="cotizacion_form" model="ir.ui.view">
+    <field name="name">cotizacion.form</field>
+    <field name="model">cotizacion.cotizacion</field>
+    <field name="arch" type="xml">
+
+        <form string="Cotizacion Tecnica">
+
+            <header>
+
+                <button
+                    name="action_agregar_linea_venta"
+                    type="object"
+                    string="Añadir linea a orden de venta"
+                    class="btn-primary"/>
+
+                <button
+                    name="action_ir_orden_venta"
+                    type="object"
+                    string="Ir a orden de venta"
+                    class="btn-secondary"/>
+
+            </header>
+
+            <sheet>
+
+                <group>
+                    <field name="name" placeholder="Ejemplo: Planta Norte Electrica"/>
+                    <field name="user_id"/>
+                    <field name="product_id"/>
+                    <field name="sale_line_id"/>
+                </group>
+
+                <group>
+                    <field name="descripcion"/>
+                </group>
+
+                <group string="Datos Tecnicos">
+                    <field name="datos_tecnicos"/>
+                    <field name="num_ingenieros"/>
+                    <field name="num_tecnicos"/>
+                    <field name="num_dias"/>
+                    <field name="tiempo_viaje"/>
+                </group>
+
+                <group string="Costo">
+                    <field name="fuera_ciudad"/>
+
+                    <field name="costo_comida"/>
+                    <field name="costo_movilizacion"/>
+
+                    <field name="costo_viaje"
+                        attrs="{'invisible':[('fuera_ciudad','=',False)]}"/>
+
+                    <field name="costo_hotel"
+                        attrs="{'invisible':[('fuera_ciudad','=',False)]}"/>
+
+                    <field name="costo_hora_ing"
+                        attrs="{'invisible':[('num_ingenieros','=',0)]}"/>
+
+                    <field name="costo_hora_tec"
+                        attrs="{'invisible':[('num_tecnicos','=',0)]}"/>
+
+                </group>
+
+                <group string="Resultados">
+                    <field name="total_laboral_sitio" readonly="1"/>
+                    <field name="total_laboral_viaje" readonly="1"/>
+                    <field name="total_viaticos" readonly="1"/>
+                    <field name="total_transporte" readonly="1"/>
+                    <field name="factor_riesgo"/>
+                </group>
+
+                <group string="Datos adicionales">
+                    <field name="reduccion_standby"/>
+                    <field name="total" readonly="1"/>
+                </group>
+
+            </sheet>
+
+        </form>
+
+    </field>
+</record>
+
+</odoo>
