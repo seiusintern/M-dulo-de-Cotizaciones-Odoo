@@ -11,17 +11,11 @@ class Cotizacion(models.Model):
         string="Descripción"
     )
 
-    user_id = fields.Many2one('res.users', string="Realizado por")
-
-    product_id = fields.Many2one(
-        'product.product',
-        string="Tipo de producto"
-    )
-
     sale_line_id = fields.Many2one(
         'sale.order.line',
         string="Linea de orden de venta"
     )
+    
 
     descripcion = fields.Text(string="Descripción")
 
