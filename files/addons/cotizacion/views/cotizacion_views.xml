@@ -44,8 +44,7 @@
                     <!-- Columna izquierda -->
                     <group string="Datos Técnicos">
 
-                        <label string="Datos técnicos" class="o_form_label"/>
-
+                        <separator string="Datos técnicos"/>
                         <field name="datos_tecnicos"/>
                         <field name="num_ingenieros"/>
                         <field name="num_tecnicos"/>
