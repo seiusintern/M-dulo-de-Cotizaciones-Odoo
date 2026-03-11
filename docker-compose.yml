@@ -11,7 +11,7 @@ services:
       - odoo-web-data:/var/lib/odoo
       - ../files/config:/etc/odoo
       - ../files/addons:/mnt/extra-addons
-      - /etc/dokploy/compose/seius-odoo18-gikjrz/code/files/addons:/mnt/extra-addons
+      - ./:/mnt/extra-addons
 
   db:
     image: postgres:17
