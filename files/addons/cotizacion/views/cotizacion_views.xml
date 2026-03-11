@@ -91,7 +91,10 @@
             <list string="Cotizaciones">
                 <field name="name"/>
                 <field name="user_id"/>
-                <field name="sale_line_id"/>
+                <field name="product_id"/>
+                <field name="num_ingenieros"/>
+                <field name="num_tecnicos"/>
+                <field name="num_dias"/>
                 <field name="total"/>
             </list>
         </field>
