@@ -23,7 +23,7 @@ class Cotizacion(models.Model):
         string="Linea de orden de venta"
     )
 
-    descripcion = fields.Text(string="Cotizacion")
+    descripcion = fields.Text(string="Descripción")
 
     datos_tecnicos = fields.Text(string="Datos Tecnicos")
 
