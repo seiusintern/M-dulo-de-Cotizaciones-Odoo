@@ -1,13 +1,11 @@
 <odoo>
 
-<odoo>
-
 <record id="cotizacion_form" model="ir.ui.view">
     <field name="name">cotizacion.form</field>
     <field name="model">cotizacion.cotizacion</field>
     <field name="arch" type="xml">
 
-        <form string="Cotización Técnica">
+        <form string="Cotizacion Tecnica">
 
             <header>
 
@@ -27,103 +25,56 @@
 
             <sheet>
 
-                <!-- TITULO -->
                 <group>
-                    <field name="name" placeholder="Escriba la cotización aquí..." style="font-size:20px;"/>
+                    <field name="name" placeholder="Ejemplo: Planta Norte Electrica"/>
+                    <field name="user_id"/>
+                    <field name="product_id"/>
+                    <field name="sale_line_id"/>
                 </group>
 
-                <!-- DESCRIPCION -->
-                <group string="Descripción">
+                <group>
                     <field name="descripcion"/>
                 </group>
 
-                <!-- DATOS TECNICOS + COSTOS -->
-                <group string="Datos técnicos y costos" col="2">
+                <group string="Datos Tecnicos">
+                    <field name="datos_tecnicos"/>
+                    <field name="num_ingenieros"/>
+                    <field name="num_tecnicos"/>
+                    <field name="num_dias"/>
+                    <field name="tiempo_viaje"/>
+                </group>
 
-                    <!-- COLUMNA 1 -->
-                    <group string="Datos técnicos">
+                <group string="Costo">
+                    <field name="fuera_ciudad"/>
 
-                        <label string="Datos técnicos:" class="o_form_label"/>
+                    <field name="costo_comida"/>
+                    <field name="costo_movilizacion"/>
 
-                        <field name="datos_tecnicos"/>
-                        <field name="num_ingenieros"/>
-                        <field name="num_tecnicos"/>
-                        <field name="num_dias"/>
-                        <field name="tiempo_viaje"/>
+                    <field name="costo_viaje"
+                        invisible="fuera_ciudad == False"/>
 
-                    </group>
+                    <field name="costo_hotel"
+                        invisible="fuera_ciudad == False"/>
 
-                    <!-- COLUMNA 2 -->
-                    <group string="Costos">
+                    <field name="costo_hora_ing"
+                        invisible="num_ingenieros == 0"/>
 
-                        <field name="fuera_ciudad"/>
-
-                        <field name="costo_comida"/>
-                        <field name="costo_movilizacion"/>
-
-                        <field name="costo_viaje"
-                               invisible="tiempo_viaje == 0"/>
-
-                        <field name="costo_hotel"
-                               invisible="tiempo_viaje == 0"/>
-
-                        <field name="costo_hora_ing"
-                               invisible="num_ingenieros == 0"/>
-
-                        <field name="costo_hora_tec"
-                               invisible="num_tecnicos == 0"/>
-
-                    </group>
+                    <field name="costo_hora_tec"
+                        invisible="num_tecnicos == 0"/>
 
                 </group>
 
-                <!-- RESULTADOS + DATOS ADICIONALES -->
-
-                <group col="2">
-
-                    <!-- RESULTADOS -->
-                    <group string="Resultados">
-
-                        <field name="total_laboral_viaje"
-                               readonly="1"
-                               invisible="tiempo_viaje == 0"/>
-
-                        <field name="total_viaticos"
-                               readonly="1"
-                               invisible="tiempo_viaje == 0"/>
-
-                        <field name="total_transporte"
-                               readonly="1"
-                               invisible="tiempo_viaje == 0"/>
-
-                    </group>
-
-                    <!-- DATOS ADICIONALES -->
-                    <group string="Datos adicionales">
-
-                        <field name="reduccion_standby"
-                               invisible="tiempo_viaje == 0"/>
-
-                    </group>
-
+                <group string="Resultados">
+                    <field name="total_laboral_sitio" readonly="1"/>
+                    <field name="total_laboral_viaje" readonly="1"/>
+                    <field name="total_viaticos" readonly="1"/>
+                    <field name="total_transporte" readonly="1"/>
+                    <field name="factor_riesgo"/>
                 </group>
 
-                <!-- TOTAL DESTACADO -->
-
-                <group>
-                    <field name="total"
-                           readonly="1"
-                           style="color:blue;font-size:22px;font-weight:bold;"/>
-                </group>
-
-                <!-- RELACIONES -->
-
-                <group string="Relaciones">
-
-                    <field name="user_id"/>
-                    <field name="sale_line_id"/>
-                    <field name="product_id"/>
-
+                <group string="Datos adicionales">
+                    <field name="reduccion_standby"/>
+                    <field name="total" readonly="1"/>
                 </group>
 
             </sheet>
@@ -134,23 +85,19 @@
 </record>
 
 <record id="cotizacion_tree" model="ir.ui.view">
-    <field name="name">cotizacion.list</field>
-    <field name="model">cotizacion.cotizacion</field>
-
-    <field name="arch" type="xml">
-
-        <tree string="Cotizaciones">
-
-            <field name="id"/>
-            <field name="name"/>
-            <field name="descripcion"/>
-            <field name="user_id"/>
-            <field name="sale_line_id"/>
-            <field name="total"/>
-
-        </tree>
-
-    </field>
+        <field name="name">cotizacion.list</field>
+        <field name="model">cotizacion.cotizacion</field>
+        <field name="arch" type="xml">
+            <list string="Cotizaciones">
+                <field name="name"/>
+                <field name="user_id"/>
+                <field name="product_id"/>
+                <field name="num_ingenieros"/>
+                <field name="num_tecnicos"/>
+                <field name="num_dias"/>
+                <field name="total"/>
+            </list>
+        </field>
 </record>
 
 </odoo>
