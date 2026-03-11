@@ -5,6 +5,7 @@
     'data': [
         'security/ir.model.access.csv',
         'views/cotizacion_views.xml',
+	'views/cotizacion_menu.xml',
     ],
     'installable': True,
     'application': True,

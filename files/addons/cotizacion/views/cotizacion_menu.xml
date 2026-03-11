@@ -1,0 +1,21 @@
+<odoo>
+
+    <record id="action_cotizacion" model="ir.actions.act_window">
+        <field name="name">Cotizaciones</field>
+        <field name="res_model">cotizacion.cotizacion</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+</odoo>
+
+<menuitem
+    id="menu_cotizacion_root"
+    name="Cotizaciones"
+/>
+
+<menuitem
+    id="menu_cotizacion"
+    name="Cotizaciones Técnicas"
+    parent="menu_cotizacion_root"
+    action="action_cotizacion"
+/>
