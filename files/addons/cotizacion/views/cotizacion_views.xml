@@ -83,7 +83,7 @@
 
                 <group>
                     <field name="total" readonly="1"/>
-                </gruop>
+                </group>
 
             </sheet>
 
