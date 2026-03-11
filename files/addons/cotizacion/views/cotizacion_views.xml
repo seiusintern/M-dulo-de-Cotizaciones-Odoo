@@ -26,7 +26,7 @@
             <sheet>
 
                 <group>
-                    <field name="name" placeholder="Ejemplo: Planta Norte Electrica"/>
+                    <field name="name" nolabel="1" placeholder="Ejemplo: Planta Norte Electrica" style="font-size:20px"/>
                     <field name="user_id"/>
                     <field name="product_id"/>
                     <field name="sale_line_id"/>
@@ -36,31 +36,35 @@
                     <field name="descripcion"/>
                 </group>
 
-                <group string="Datos Tecnicos">
-                    <field name="datos_tecnicos"/>
-                    <field name="num_ingenieros"/>
-                    <field name="num_tecnicos"/>
-                    <field name="num_dias"/>
-                    <field name="tiempo_viaje"/>
-                </group>
+                <group string="Cotización" col="2">
 
-                <group string="Costo">
-                    <field name="fuera_ciudad"/>
+                    <group string="Datos Tecnicos">
+                        <field name="datos_tecnicos"/>
+                        <field name="num_ingenieros"/>
+                        <field name="num_tecnicos"/>
+                        <field name="num_dias"/>
+                        <field name="tiempo_viaje"/>
+                    </group>
 
-                    <field name="costo_comida"/>
-                    <field name="costo_movilizacion"/>
+                    <group string="Costo" invisible="tiempo_viaje == 0">
+                        <field name="fuera_ciudad"/>
 
-                    <field name="costo_viaje"
-                        invisible="fuera_ciudad == False"/>
+                        <field name="costo_comida"/>
+                        <field name="costo_movilizacion"/>
 
-                    <field name="costo_hotel"
-                        invisible="fuera_ciudad == False"/>
+                        <field name="costo_viaje"
+                            invisible="fuera_ciudad == False"/>
 
-                    <field name="costo_hora_ing"
-                        invisible="num_ingenieros == 0"/>
+                        <field name="costo_hotel"
+                            invisible="fuera_ciudad == False"/>
 
-                    <field name="costo_hora_tec"
-                        invisible="num_tecnicos == 0"/>
+                        <field name="costo_hora_ing"
+                            invisible="num_ingenieros == 0"/>
+
+                        <field name="costo_hora_tec"
+                            invisible="num_tecnicos == 0"/>
+
+                    </group>
 
                 </group>
 
