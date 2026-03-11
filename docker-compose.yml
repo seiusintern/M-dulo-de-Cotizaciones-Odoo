@@ -9,9 +9,8 @@ services:
       - PASSWORD=odoo
     volumes:
       - odoo-web-data:/var/lib/odoo
-      - ../files/config:/etc/odoo
-      - ../files/addons:/mnt/extra-addons
-      - ./:/mnt/extra-addons
+      - ./files/config:/etc/odoo
+      - ./files/addons:/mnt/extra-addons
 
   db:
     image: postgres:17
