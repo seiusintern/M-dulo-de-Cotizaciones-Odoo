@@ -6,16 +6,15 @@
         <field name="view_mode">tree,form</field>
     </record>
 
+    <menuitem
+        id="menu_cotizacion_root"
+        name="Cotizaciones"
+    />
+
+    <menuitem
+        id="menu_cotizacion"
+        name="Cotizaciones Técnicas"
+        parent="menu_cotizacion_root"
+        action="action_cotizacion"
+    />
 </odoo>
-
-<menuitem
-    id="menu_cotizacion_root"
-    name="Cotizaciones"
-/>
-
-<menuitem
-    id="menu_cotizacion"
-    name="Cotizaciones Técnicas"
-    parent="menu_cotizacion_root"
-    action="action_cotizacion"
-/>
