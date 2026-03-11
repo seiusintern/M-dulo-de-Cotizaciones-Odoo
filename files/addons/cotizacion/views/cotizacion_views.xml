@@ -25,56 +25,92 @@
 
             <sheet>
 
+                <!-- Nombre grande -->
                 <group>
-                    <field name="name" placeholder="Ejemplo: Planta Norte Electrica"/>
-                    <field name="user_id"/>
-                    <field name="product_id"/>
-                    <field name="sale_line_id"/>
+                    <field name="name"
+                        placeholder="Nombre de la cotización"
+                        widget="text"/>
                 </group>
 
+                <!-- Descripción -->
+                <group string="Descripción">
+                    <field name="descripcion" nolabel="1"/>
+                </group>
+
+
+                <!-- DATOS TECNICOS Y COSTOS -->
+                <group col="2">
+
+                    <!-- Columna izquierda -->
+                    <group string="Datos Técnicos">
+
+                        <label string="Datos técnicos"/>
+
+                        <field name="datos_tecnicos"/>
+                        <field name="num_ingenieros"/>
+                        <field name="num_tecnicos"/>
+                        <field name="num_dias"/>
+                        <field name="tiempo_viaje"/>
+
+                    </group>
+
+                    <!-- Columna derecha -->
+                    <group string="Costos"
+                        invisible="tiempo_viaje == 0">
+
+                        <field name="costo_comida"/>
+                        <field name="costo_movilizacion"/>
+                        <field name="costo_viaje"/>
+                        <field name="costo_hotel"/>
+                        <field name="costo_hora_ing"/>
+                        <field name="costo_hora_tec"/>
+
+                    </group>
+
+                </group>
+
+
+                <!-- RESULTADOS Y DATOS ADICIONALES -->
+                <group col="2">
+
+                    <!-- Resultados -->
+                    <group string="Resultados">
+
+                        <field name="total_laboral_sitio" readonly="1"/>
+
+                        <field name="total_laboral_viaje"
+                            readonly="1"
+                            invisible="tiempo_viaje == 0"/>
+
+                        <field name="total_viaticos"
+                            readonly="1"
+                            invisible="tiempo_viaje == 0"/>
+
+                        <field name="total_transporte"
+                            readonly="1"
+                            invisible="tiempo_viaje == 0"/>
+
+                        <field name="factor_riesgo"/>
+
+                    </group>
+
+
+                    <!-- Datos adicionales -->
+                    <group string="Datos adicionales">
+
+                        <field name="reduccion_standby"
+                            invisible="tiempo_viaje == 0"/>
+
+                    </group>
+
+                </group>
+
+
+                <!-- TOTAL -->
                 <group>
-                    <field name="descripcion"/>
-                </group>
-
-                <group string="Datos Tecnicos">
-                    <field name="datos_tecnicos"/>
-                    <field name="num_ingenieros"/>
-                    <field name="num_tecnicos"/>
-                    <field name="num_dias"/>
-                    <field name="tiempo_viaje"/>
-                </group>
-
-                <group string="Costo">
-                    <field name="fuera_ciudad"/>
-
-                    <field name="costo_comida"/>
-                    <field name="costo_movilizacion"/>
-
-                    <field name="costo_viaje"
-                        invisible="fuera_ciudad == False"/>
-
-                    <field name="costo_hotel"
-                        invisible="fuera_ciudad == False"/>
-
-                    <field name="costo_hora_ing"
-                        invisible="num_ingenieros == 0"/>
-
-                    <field name="costo_hora_tec"
-                        invisible="num_tecnicos == 0"/>
-
-                </group>
-
-                <group string="Resultados">
-                    <field name="total_laboral_sitio" readonly="1"/>
-                    <field name="total_laboral_viaje" readonly="1"/>
-                    <field name="total_viaticos" readonly="1"/>
-                    <field name="total_transporte" readonly="1"/>
-                    <field name="factor_riesgo"/>
-                </group>
-
-                <group string="Datos adicionales">
-                    <field name="reduccion_standby"/>
-                    <field name="total" readonly="1"/>
+                    <field name="total"
+                        readonly="1"
+                        class="oe_highlight"/>
                 </group>
 
             </sheet>
@@ -84,20 +120,30 @@
     </field>
 </record>
 
-<record id="cotizacion_tree" model="ir.ui.view">
-        <field name="name">cotizacion.list</field>
-        <field name="model">cotizacion.cotizacion</field>
-        <field name="arch" type="xml">
-            <list string="Cotizaciones">
-                <field name="name"/>
-                <field name="user_id"/>
-                <field name="product_id"/>
-                <field name="num_ingenieros"/>
-                <field name="num_tecnicos"/>
-                <field name="num_dias"/>
-                <field name="total"/>
-            </list>
-        </field>
+<record id="cotizacion_list" model="ir.ui.view">
+    <field name="name">cotizacion.list</field>
+    <field name="model">cotizacion.cotizacion</field>
+    <field name="arch" type="xml">
+
+        <list string="Cotizaciones">
+
+            <field name="name" string="Nombre"/>
+
+            <field name="descripcion"/>
+
+            <field name="user_id" string="Realizado por"/>
+
+            <field name="sale_line_id"
+                string="Linea Orden Venta"/>
+
+            <field name="id"/>
+
+            <field name="total"/>
+
+        </list>
+
+    </field>
 </record>
+
 
 </odoo>
