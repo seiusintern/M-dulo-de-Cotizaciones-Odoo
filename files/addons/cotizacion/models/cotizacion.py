@@ -11,10 +11,18 @@ class Cotizacion(models.Model):
         string="Descripción"
     )
 
+    user_id = fields.Many2one(
+        'res.users',
+        string="Realizado por",
+        default=lambda self: self.env.user
+    )
+
     sale_line_id = fields.Many2one(
         'sale.order.line',
         string="Linea de orden de venta"
     )
+
+    total = fields.Float("Total")
     
 
     descripcion = fields.Text(string="Descripción")
