@@ -83,17 +83,15 @@
 
     </field>
 </record>
+
 <record id="cotizacion_tree" model="ir.ui.view">
-        <field name="name">cotizacion.tree</field>
+        <field name="name">cotizacion.list</field>
         <field name="model">cotizacion.cotizacion</field>
         <field name="arch" type="xml">
             <list string="Cotizaciones">
                 <field name="name"/>
                 <field name="user_id"/>
-                <field name="product_id"/>
-                <field name="num_ingenieros"/>
-                <field name="num_tecnicos"/>
-                <field name="num_dias"/>
+                <field name="sale_line_id"/>
                 <field name="total"/>
             </list>
         </field>
