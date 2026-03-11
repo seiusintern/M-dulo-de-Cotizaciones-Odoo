@@ -22,7 +22,10 @@ class Cotizacion(models.Model):
         string="Linea de orden de venta"
     )
 
-    total = fields.Float("Total")
+    product_id = fields.Many2one(
+        'product.product',
+        string="Producto"
+    )
     
 
     descripcion = fields.Text(string="Descripción")
