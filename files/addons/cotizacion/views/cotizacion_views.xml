@@ -5,6 +5,16 @@
     <field name="model">cotizacion.cotizacion</field>
     <field name="arch" type="xml">
 
+        <tree string="Cotizaciones">
+                <field name="name"/>
+                <field name="user_id"/>
+                <field name="product_id"/>
+                <field name="num_ingenieros"/>
+                <field name="num_tecnicos"/>
+                <field name="num_dias"/>
+                <field name="total"/>
+            </tree>
+
         <form string="Cotizacion Tecnica">
 
             <header>
