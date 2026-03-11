@@ -58,27 +58,29 @@
                         <field name="costo_hotel"
                             invisible="fuera_ciudad == False"/>
 
+                    </group>
+
+                </group>
+
+                <group col="2">
+                    <group string="Resultados">
+                        <field name="total_laboral_sitio" readonly="1"/>
+                        <field name="total_laboral_viaje" readonly="1" invisible="tiempo_viaje == 0"/>
+                        <field name="total_viaticos" readonly="1" invisible="tiempo_viaje == 0"/>
+                        <field name="total_transporte" readonly="1" invisible="tiempo_viaje == 0"/>
+                        <field name="factor_riesgo"/>
+                    </group>
+
+                    <group string="Datos adicionales">
                         <field name="costo_hora_ing"
                             invisible="num_ingenieros == 0"/>
 
                         <field name="costo_hora_tec"
                             invisible="num_tecnicos == 0"/>
 
+                        <field name="reduccion_standby"/>
+                        <field name="total" readonly="1"/>
                     </group>
-
-                </group>
-
-                <group string="Resultados">
-                    <field name="total_laboral_sitio" readonly="1"/>
-                    <field name="total_laboral_viaje" readonly="1"/>
-                    <field name="total_viaticos" readonly="1"/>
-                    <field name="total_transporte" readonly="1"/>
-                    <field name="factor_riesgo"/>
-                </group>
-
-                <group string="Datos adicionales">
-                    <field name="reduccion_standby"/>
-                    <field name="total" readonly="1"/>
                 </group>
 
             </sheet>
