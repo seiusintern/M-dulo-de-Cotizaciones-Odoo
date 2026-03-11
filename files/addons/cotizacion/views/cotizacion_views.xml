@@ -39,7 +39,6 @@
                 <group string="Cotización" col="2">
 
                     <group string="Datos Tecnicos">
-                        <field name="datos_tecnicos"/>
                         <field name="num_ingenieros"/>
                         <field name="num_tecnicos"/>
                         <field name="num_dias"/>
@@ -78,10 +77,13 @@
                         <field name="costo_hora_tec"
                             invisible="num_tecnicos == 0"/>
 
-                        <field name="reduccion_standby"/>
-                        <field name="total" readonly="1"/>
+                        <field name="reduccion_standby" invisible="tiempo_viaje == 0"/>
                     </group>
                 </group>
+
+                <group>
+                    <field name="total" readonly="1"/>
+                </gruop>
 
             </sheet>
 
