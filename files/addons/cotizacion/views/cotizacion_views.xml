@@ -51,16 +51,16 @@
                     <field name="costo_movilizacion"/>
 
                     <field name="costo_viaje"
-                        attrs="{'invisible':[('fuera_ciudad','=',False)]}"/>
+                        invisible="fuera_ciudad == False"/>
 
                     <field name="costo_hotel"
-                        attrs="{'invisible':[('fuera_ciudad','=',False)]}"/>
+                        invisible="fuera_ciudad == False"/>
 
                     <field name="costo_hora_ing"
-                        attrs="{'invisible':[('num_ingenieros','=',0)]}"/>
+                        invisible="num_ingenieros == 0"/>
 
                     <field name="costo_hora_tec"
-                        attrs="{'invisible':[('num_tecnicos','=',0)]}"/>
+                        invisible="num_tecnicos == 0"/>
 
                 </group>
 
