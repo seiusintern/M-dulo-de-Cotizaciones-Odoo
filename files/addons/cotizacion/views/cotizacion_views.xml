@@ -103,7 +103,7 @@
         <field name="arch" type="xml">
             <list string="Cotizaciones">
                 <field name="name" string="Nombre"/>
-                <field name="cotizacion" string="Descripción"/>
+                <field name="descripcion" string="Descripción"/>
                 <field name="user_id" string="Realizado por"/>
                 <field name="sale_order_line_id" string="Línea Orden Venta"/>
                 <field name="total" string="Total"/>
