@@ -105,7 +105,7 @@
                 <field name="name" string="Nombre"/>
                 <field name="descripcion" string="Descripción"/>
                 <field name="user_id" string="Realizado por"/>
-                <field name="sale_order_line_id" string="Línea Orden Venta"/>
+                <field name="sale_line_id" string="Línea Orden Venta"/>
                 <field name="total" string="Total"/>
             </list>
         </field>
