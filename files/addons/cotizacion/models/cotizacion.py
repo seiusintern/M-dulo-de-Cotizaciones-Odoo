@@ -26,6 +26,8 @@ class Cotizacion(models.Model):
         'product.product',
         string="Producto"
     )
+
+    total = fields.Float("Total")
     
 
     descripcion = fields.Text(string="Descripción")
